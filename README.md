@@ -11,6 +11,7 @@ A modern, minimalist Flutter mobile app for UN Design agency, inspired by the el
 - **Portfolio Gallery**: Swipeable image carousel with project details
 - **Contact Form**: Functional contact form with validation
 - **Service Showcase**: Comprehensive list of web design services
+- **QR Code Generator**: Generate QR codes for various content types
 
 ## Screens
 
@@ -19,6 +20,7 @@ A modern, minimalist Flutter mobile app for UN Design agency, inspired by the el
 3. **Services Screen**: List of web design services
 4. **Portfolio Screen**: Swipeable project gallery
 5. **Contact Screen**: Contact form and company information
+6. **QR Generator**: Create QR codes for URLs, WiFi, contact cards, etc.
 
 ## Tech Stack
 
@@ -28,6 +30,8 @@ A modern, minimalist Flutter mobile app for UN Design agency, inspired by the el
 - **UI Components**: Custom widgets with Material Design 3
 - **Animations**: Flutter Animation Controller
 - **Storage**: Shared Preferences for language settings
+- **QR Code**: qr_flutter package
+- **Image Saving**: image_gallery_saver package
 
 ## Getting Started
 
@@ -42,8 +46,8 @@ A modern, minimalist Flutter mobile app for UN Design agency, inspired by the el
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd un_design_app
+git clone https://github.com/UnDesignsStudio/un-design-app.git
+cd un-design-app
 ```
 
 2. Install dependencies:
@@ -55,6 +59,14 @@ flutter pub get
 ```bash
 flutter run
 ```
+
+### Web Deployment
+
+For web deployment, the app includes GitHub Actions workflow for automatic deployment to GitHub Pages:
+
+1. Push to main branch
+2. GitHub Actions will automatically build and deploy
+3. Access at: https://undesignsstudio.github.io/un-design-app
 
 ### Project Structure
 
@@ -69,12 +81,14 @@ lib/
 │   ├── home_screen.dart      # Home screen
 │   ├── services_screen.dart  # Services screen
 │   ├── portfolio_screen.dart # Portfolio screen
-│   └── contact_screen.dart   # Contact screen
+│   ├── contact_screen.dart   # Contact screen
+│   └── qr_generator_screen.dart # QR code generator
 ├── utils/
 │   ├── app_theme.dart        # Theme configuration
 │   └── app_localizations.dart # Localization strings
 └── widgets/
-    └── language_selector.dart # Language switcher widget
+    ├── language_selector.dart # Language switcher widget
+    └── qr_code_widget.dart   # QR code display widget
 ```
 
 ## Customization
@@ -108,6 +122,9 @@ dependencies:
   shared_preferences: ^2.2.2
   smooth_page_indicator: ^1.1.0
   url_launcher: ^6.2.1
+  qr_flutter: ^4.1.0
+  image_gallery_saver: ^2.0.3
+  permission_handler: ^11.4.0
 ```
 
 ## Features in Detail
@@ -127,6 +144,12 @@ dependencies:
 - Loading states
 - Success feedback
 - Placeholder email functionality
+
+### QR Code Generator
+- Generate QR codes for URLs, WiFi networks, contact cards
+- Save QR codes to device gallery
+- Copy QR code data to clipboard
+- Template presets for common use cases
 
 ### Smooth Animations
 - Page transitions
@@ -155,4 +178,4 @@ For questions or support, please contact:
 
 ---
 
-Built with ❤️ by UN Design Team 
+Built with ❤️ by UN Design Team
